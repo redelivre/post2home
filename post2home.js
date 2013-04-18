@@ -1,9 +1,9 @@
 jQuery(document).ready(function() {
   
-	jQuery('.hacklab_post2home_button').click(function() {
+	jQuery('.post2home-button').click(function() {
 		var action;
 		var update_destaque;
-		var post_id = jQuery(this).attr('id').replace('hacklab_post2home_', '');
+		var post_id = jQuery(this).attr('id').replace('post2home-', '');
 		if (jQuery(this).attr('checked')) {
 			action = 'destaque_add';
 		} else {
@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
 		
 		update_destaque = jQuery.ajax({
             type: 'POST',
-            url: hacklab.ajaxurl,
+            url: ajaxurl,
             dataType: 'html',
             data: {
 				post_id: post_id,
