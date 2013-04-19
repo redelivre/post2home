@@ -26,7 +26,6 @@ License: GPL2
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-
 add_filter( 'manage_posts_columns', 'post2home_add_column' );
 add_action( 'manage_posts_custom_column', 'post2home_create_input', 10, 2 );
 add_action( 'admin_enqueue_scripts', 'post2home_enqueue_scripts' );
@@ -53,11 +52,13 @@ function post2home_add_column( $columns ) {
  * @param int   $post_id The post ID
  */
 function post2home_create_input( $column, $post_id ) {
+
     if ( $column == 'post2home-feature' ) { ?>  
         <input type="checkbox" class="post2home-button" id="post2home-<?php echo $post_id; ?>" <?php checked( get_post_meta( $post_id, '_post2home', true ), 1 ); ?>>
-        <label for="post2home-<?php echo $post_id; ?>" title="<?php _e( 'Set or unset post feature', 'post2home' ); ?>"><?php _e( 'Home', 'post2home' ); ?></label>
+        <label for="post2home-<?php echo $post_id; ?>" title="<?php _e( 'Set / unset post feature', 'post2home' ); ?>" class="icon-star"><span class="screen-reader-text"><?php _e( 'Set / unset post feature', 'post2home' ); ?></span></label>
     <?php
     }
+    
 }
 
 /**
@@ -92,9 +93,11 @@ function post2home_handle_post_meta() {
 	$post_id = $_POST['post_id'];
 	
 	if ( $meta_action == 'update_meta' )
-    	update_post_meta($post_id, '_post2home', 1);
+    	update_post_meta( $post_id, '_post2home', 1 );
     elseif ( $meta_action == 'delete_meta' )
-    	delete_post_meta( $post_id, '_post2home');
-    die;
+    	delete_post_meta( $post_id, '_post2home' );
+    
+    die();
+    
 }
 ?>
