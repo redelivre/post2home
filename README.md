@@ -8,3 +8,8 @@ Simply create a new query passing as arguments `_post2home` meta key and its val
 
 `$featured_posts = new WP_Query( array( 'ignore_sticky_posts' => 1, 'meta_key' => '_post2home', 'meta_value' => 1 ) );`
 
+## Thanks
+* [Hacklab](http://hacklab.com.br)
+* [Fontello](http://fontello.com)
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+
