@@ -30,8 +30,7 @@ License: GPL2
 add_filter( 'manage_posts_columns', 'post2home_add_column' );
 add_action( 'manage_posts_custom_column', 'post2home_create_input', 10, 2 );
 add_action( 'admin_enqueue_scripts', 'post2home_enqueue_scripts' );
-add_action( 'wp_ajax_destaque_add', 'post2home_update_post_meta' );
-add_action( 'wp_ajax_destaque_remove', 'post2home_remove_post_meta' );
+add_action( 'wp_ajax_post2home_handle_post_meta', 'post2home_handle_post_meta' );
 
 /**
  * Add a new column to post edit screen
@@ -65,6 +64,7 @@ function post2home_create_input( $column, $post_id ) {
  * Enqueue necessary scripts
  *
  * @param string $hook The current hook
+ *
  * @global string $post_type The current post type
  */
 function post2home_enqueue_scripts( $hook ) {
@@ -83,22 +83,18 @@ function post2home_enqueue_scripts( $hook ) {
 }
 
 /**
- * Update post meta via Ajax
+ * Handle post meta action via Ajax
  *
  */
-function post2home_update_post_meta() {
-    update_post_meta($_POST['post_id'], '_post2home', 1);
-    echo 'ok';
-    die;
-}
-
-/**
- * Remove post meta via Ajax
- *
- */
-function post2home_remove_post_meta() {
-    delete_post_meta($_POST['post_id'], '_post2home');
-    echo 'ok';
+function post2home_handle_post_meta() {
+	
+	$meta_action = $_POST['meta_action'];
+	$post_id = $_POST['post_id'];
+	
+	if ( $meta_action == 'update_meta' )
+    	update_post_meta($post_id, '_post2home', 1);
+    elseif ( $meta_action == 'delete_meta' )
+    	delete_post_meta( $post_id, '_post2home');
     die;
 }
 ?>
