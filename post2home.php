@@ -58,7 +58,7 @@ function post2home_create_input( $column, $post_id ) {
         <label for="post2home-<?php echo $post_id; ?>" title="<?php _e( 'Set / unset post feature', 'post2home' ); ?>" class="icon-star"><span class="screen-reader-text"><?php _e( 'Set / unset post feature', 'post2home' ); ?></span></label>
     <?php
     }
-    
+
 }
 
 /**
