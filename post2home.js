@@ -1,5 +1,4 @@
 jQuery(document).ready(function() {
-
 	jQuery('.post2home-button').click(function() {
 		var meta_action;
 		var post_id = jQuery(this).attr('id').replace('post2home-', '');
@@ -24,5 +23,4 @@ jQuery(document).ready(function() {
             }
         });
 	});
-    
 });
