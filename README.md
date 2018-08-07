@@ -1,5 +1,7 @@
-#post2home WordPress plugin
+# post2home WordPress plugin
 
+![GitHub](https://img.shields.io/github/license/redelivre/post2home.svg)
+[![chatroom icon](https://patrolavia.github.io/telegram-badge/chat.png)](https://t.me/joinchat/AHZmBhAkX_efR9za0V_J1A)
 
 A simple way to feature posts without interfering with sticky posts logic. Originally done by the good guys at [Hacklab](http://hacklab.com.br).
 
